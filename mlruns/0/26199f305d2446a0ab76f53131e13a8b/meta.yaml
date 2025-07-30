@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/house_price/mlruns/0/26199f305d2446a0ab76f53131e13a8b/artifacts
+end_time: 1753786921254
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 26199f305d2446a0ab76f53131e13a8b
+run_name: LinearRegression_Baseline_TrainTestSplit
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753786921015
+status: 3
+tags: []
+user_id: Admin
