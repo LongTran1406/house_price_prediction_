@@ -32,7 +32,7 @@
 
 This project builds an automated pipeline to scrape real estate listings in New South Wales, clean and process the data, train ML models to predict house prices, and deploy the results using modern DevOps tools.
 
-Key Features:
+**Key Features:**
 - Scraping from NSW property sites
 - Data cleaning and preprocessing
 - Model training (Linear Regression, XGBoost)
@@ -45,7 +45,7 @@ Key Features:
 
 ---
 
-### 🛠️ Built With
+## 🛠️ Built With
 
 - Python 3.10
 - scikit-learn
@@ -69,7 +69,137 @@ Key Features:
 
 ### Installation
 
-1. Clone the repo:
+1. **Clone the repo:**
    ```bash
    git clone https://github.com/your_username/nsw-house-price-prediction.git
    cd nsw-house-price-prediction
+   ```
+
+2. **Set up a virtual environment and install dependencies:**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   pip install -r requirements.txt
+   ```
+
+3. **Configure DVC remote storage (replace with your S3 bucket or preferred remote):**
+   ```bash
+   dvc remote add -d myremote s3://your-bucket-name
+   dvc pull
+   ```
+
+4. **(Optional) Configure AWS CLI if using S3:**
+   ```bash
+   aws configure
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## 🧠 Usage
+
+### Data Scraping
+Run the scraper to collect raw NSW housing data:
+```bash
+python src/scraping/scrape_data.py
+```
+
+### Data Preprocessing
+Clean and preprocess scraped data:
+```bash
+python src/preprocessing/clean_data.py
+```
+
+### Model Training
+Train ML models and log experiments:
+```bash
+python src/training/train_model.py
+```
+Models and metrics are saved in the `models/` directory and logged with MLflow.
+
+### Docker Deployment
+Build and run the API container:
+```bash
+docker build -t nsw-price-api .
+docker run -p 5000:5000 nsw-price-api
+```
+
+### CI/CD
+GitHub Actions pipeline automates:
+- Data pulling via DVC
+- Model training & evaluation
+- Artifact and metric uploads
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## 📊 Evaluation Metrics
+
+- Mean Absolute Error (MAE)
+- Root Mean Squared Error (RMSE)
+- R² Score
+- Feature importance from XGBoost
+
+**Tracked artifacts by DVC:**
+- `models/*.pkl`
+- `metrics.json`
+- `data/processed/`
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## 🔁 Roadmap
+
+- [x] Web scraping pipeline
+- [x] Data cleaning & feature engineering
+- [x] Model training & MLflow logging
+- [x] Dockerized API deployment
+- [x] GitHub Actions CI/CD pipeline
+- [ ] Streamlit dashboard for interactive exploration
+- [ ] Frontend integration for live predictions
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add your feature'`)
+4. Push to your branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## 📬 Contact
+
+**The Long Tran**
+- 📧 thelong@example.com
+- 🔗 [LinkedIn](https://linkedin.com/in/your-profile)
+- 💻 [GitHub Project](https://github.com/your_username/nsw-house-price-prediction)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[contributors-shield]: https://img.shields.io/github/contributors/your_username/nsw-house-price-prediction.svg?style=for-the-badge
+[contributors-url]: https://github.com/your_username/nsw-house-price-prediction/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/your_username/nsw-house-price-prediction.svg?style=for-the-badge
+[forks-url]: https://github.com/your_username/nsw-house-price-prediction/network/members
+[stars-shield]: https://img.shields.io/github/stars/your_username/nsw-house-price-prediction.svg?style=for-the-badge
+[stars-url]: https://github.com/your_username/nsw-house-price-prediction/stargazers
+[issues-shield]: https://img.shields.io/github/issues/your_username/nsw-house-price-prediction.svg?style=for-the-badge
+[issues-url]: https://github.com/your_username/nsw-house-price-prediction/issues
+[license-shield]: https://img.shields.io/github/license/your_username/nsw-house-price-prediction.svg?style=for-the-badge
+[license-url]: https://github.com/your_username/nsw-house-price-prediction/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/your-profile
