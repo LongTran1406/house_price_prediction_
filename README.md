@@ -38,8 +38,9 @@ This project builds an automated pipeline to scrape real estate listings in New 
 - Model training (Linear Regression, XGBoost)
 - MLflow experiment logging
 - DVC tracking of data and models
-- Docker-based deployment
-- CI/CD with GitHub Actions
+- Docker-based deployment with images hosted on AWS ECR
+- CI/CD pipeline with GitHub Actions deploying to AWS ECR and/or other cloud services
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -49,7 +50,6 @@ This project builds an automated pipeline to scrape real estate listings in New 
 
 - Python 3.10
 - scikit-learn
-- XGBoost
 - MLflow
 - DVC
 - Docker
@@ -102,21 +102,21 @@ This project builds an automated pipeline to scrape real estate listings in New 
 ### Data Scraping
 Run the scraper to collect raw NSW housing data:
 ```bash
-python src/scraping/scrape_data.py
+python src/scraping.py
 ```
 
 ### Data Preprocessing
 Clean and preprocess scraped data:
 ```bash
-python src/preprocessing/clean_data.py
+python src/data_cleaning.py
+python src/data_cleaning2.py
 ```
 
 ### Model Training
 Train ML models and log experiments:
 ```bash
-python src/training/train_model.py
+python src/model_building.py
 ```
-Models and metrics are saved in the `models/` directory and logged with MLflow.
 
 ### Docker Deployment
 Build and run the API container:
@@ -129,7 +129,7 @@ docker run -p 5000:5000 nsw-price-api
 GitHub Actions pipeline automates:
 - Data pulling via DVC
 - Model training & evaluation
-- Artifact and metric uploads
+- Auto deploying model on AWS 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -140,44 +140,19 @@ GitHub Actions pipeline automates:
 - Mean Absolute Error (MAE)
 - Root Mean Squared Error (RMSE)
 - R² Score
-- Feature importance from XGBoost
 
-**Tracked artifacts by DVC:**
-- `models/*.pkl`
-- `metrics.json`
-- `data/processed/`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
 
-## 🔁 Roadmap
 
-- [x] Web scraping pipeline
-- [x] Data cleaning & feature engineering
-- [x] Model training & MLflow logging
-- [x] Dockerized API deployment
-- [x] GitHub Actions CI/CD pipeline
-- [ ] Streamlit dashboard for interactive exploration
-- [ ] Frontend integration for live predictions
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
 
-## 🤝 Contributing
 
-Pull requests are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -m 'Add your feature'`)
-4. Push to your branch (`git push origin feature/your-feature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
----
 
 ## 📬 Contact
 
