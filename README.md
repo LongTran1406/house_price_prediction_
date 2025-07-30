@@ -1,60 +1,75 @@
-🏠 NSW House Price Prediction
-An end-to-end machine learning pipeline for predicting property prices in New South Wales, Australia. This project scrapes real-estate listings, cleans and preprocesses the data, trains and evaluates models, and includes full MLOps integration with DVC, Docker, MLflow, and GitHub Actions.
+<!-- Back to Top Anchor -->
+<a id="readme-top"></a>
 
-📂 Project Overview
-Scrape property listings from NSW real-estate websites
+<!-- SHIELDS -->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-Clean and transform structured data (numerical & categorical)
+<!-- LOGO -->
+<br />
+<div align="center">
+  <h1 align="center">🏠 NSW House Price Prediction</h1>
+  <p align="center">
+    End-to-end ML pipeline to predict NSW property prices.
+    <br />
+    <a href="#about-the-project"><strong>Explore the docs »</strong></a>
+    <br />
+    <a href="#usage">View Usage</a>
+    ·
+    <a href="https://github.com/your_username/nsw-house-price-prediction/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/your_username/nsw-house-price-prediction/issues">Request Feature</a>
+  </p>
+</div>
 
-Train two models: Linear Regression and XGBoost
+---
 
-Log experiments using MLflow
+## 📖 About The Project
 
-Version datasets and models using DVC (S3 as remote)
+This project builds an automated pipeline to scrape real estate listings in New South Wales, clean and process the data, train ML models to predict house prices, and deploy the results using modern DevOps tools.
 
-Package with Docker for API deployment
+Key Features:
+- Scraping from NSW property sites
+- Data cleaning and preprocessing
+- Model training (Linear Regression, XGBoost)
+- MLflow experiment logging
+- DVC tracking of data and models
+- Docker-based deployment
+- CI/CD with GitHub Actions
 
-Automate training and deployment with GitHub Actions
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-⚙️ Tech Stack
-Python 3.10
+---
 
-scikit-learn, XGBoost
+### 🛠️ Built With
 
-MLflow for experiment tracking
+- Python 3.10
+- scikit-learn
+- XGBoost
+- MLflow
+- DVC
+- Docker
+- GitHub Actions
 
-DVC for dataset/model versioning
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Flask API for inference
+---
 
-Docker for containerization
+## 🚀 Getting Started
 
-GitHub Actions for CI/CD
+### Prerequisites
 
-AWS S3 for remote storage
+- Python >= 3.10
+- Git, DVC, Docker
+- AWS CLI (for DVC remote)
 
-📦 Project Structure
-.
-├── data/
-│   ├── raw/                  # Scraped NSW property listings
-│   └── processed/            # Cleaned and engineered features
-├── models/                   # Saved .pkl models
-├── notebooks/                # EDA and experiments
-├── src/
-│   ├── scraping/             # Web scraping script(s)
-│   ├── preprocessing/        # Cleaning, encoding, scaling
-│   ├── training/             # Model training + MLflow logging
-│   └── utils/                # Helper functions
-├── app.py                    # Flask API for inference
-├── Dockerfile                # Docker container setup
-├── dvc.yaml                  # DVC pipeline stages
-├── requirements.txt          # Python dependencies
-└── .github/workflows/        # CI/CD configuration
+### Installation
 
-🚀 Getting Started
-1. Clone and set up environment
-git clone https://github.com/your_username/nsw-house-price-prediction.git
-cd nsw-house-price-prediction
-python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-pip install -r requirements.txt
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/your_username/nsw-house-price-prediction.git
+   cd nsw-house-price-prediction
