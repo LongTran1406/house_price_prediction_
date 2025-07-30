@@ -6,6 +6,7 @@
 
 # Models and artifacts
 *.pkl
+!preprocessing.pkl
 *.joblib
 *.h5
 *.pt
