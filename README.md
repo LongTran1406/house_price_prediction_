@@ -71,8 +71,8 @@ This project builds an automated pipeline to scrape real estate listings in New 
 
 1. **Clone the repo:**
    ```bash
-   git clone https://github.com/your_username/nsw-house-price-prediction.git
-   cd nsw-house-price-prediction
+   git clone https://github.com/LongTran1406/house_price_prediction_.git
+   cd house_price_prediction_
    ```
 
 2. **Set up a virtual environment and install dependencies:**
@@ -158,8 +158,8 @@ GitHub Actions pipeline automates:
 
 **The Long Tran**
 - 📧 thelong@example.com
-- 🔗 [LinkedIn](https://linkedin.com/in/your-profile)
-- 💻 [GitHub Project](https://github.com/your_username/nsw-house-price-prediction)
+- 🔗 [LinkedIn](https://linkedin.com/in/your-profile](https://www.linkedin.com/in/the-long-tran-912b1b199/))
+- 💻 [GitHub Project](https://github.com/LongTran1406/house_price_prediction_)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
