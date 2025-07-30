@@ -149,8 +149,8 @@ GitHub Actions pipeline automates:
 ## 📬 Contact
 
 **The Long Tran**
-- 📧 thelong@example.com
-- 🔗 [LinkedIn](https://linkedin.com/in/your-profile](https://www.linkedin.com/in/the-long-tran-912b1b199/))
+- 📧 tranthelong1406@gmail.com
+- 🔗 [LinkedIn](https://www.linkedin.com/in/the-long-tran-912b1b199/)
 - 💻 [GitHub Project](https://github.com/LongTran1406/house_price_prediction_)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
