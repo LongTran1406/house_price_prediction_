@@ -1,35 +1,120 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Demo for NSW's housing prediction</title>
-    </head>
-    <body>
-        <h1>NSW housing prediction</h1>
-        <input id="address" type="text" placeholder="Enter your address: e.g. 10 High Street, North Lambton" id = >
-        <input id="bed_num" type="number" placeholder="Enter the number of bedroom number" >
-        <input id="bath_num" type="number" placeholder="Enter the number of bathroom">
-        <input id="parking" type="number" placeholder="Enter the number of parking spaces">
-        <input id="area" type="number" placeholder="Enter the land area(m2)">
+<head>
+    <title>NSW Housing Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #475569;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.6rem;
+            margin-top: 0.3rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 2rem;
+            padding: 0.8rem;
+            font-size: 1.1rem;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1e40af;
+        }
+
+        #display {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            text-align: center;
+            color: #0f172a;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>NSW Housing Prediction</h1>
+
+        <label for="address">Address</label>
+        <input id="address" type="text" placeholder="e.g. 10 High Street, North Lambton">
+
+        <label for="bed_num">Bedrooms</label>
+        <input id="bed_num" type="number" placeholder="e.g. 3">
+
+        <label for="bath_num">Bathrooms</label>
+        <input id="bath_num" type="number" placeholder="e.g. 2">
+
+        <label for="parking">Parking Spaces</label>
+        <input id="parking" type="number" placeholder="e.g. 1">
+
+        <label for="area">Land Area (m²)</label>
+        <input id="area" type="number" placeholder="e.g. 450">
+
         <button onclick="predict()">Predict</button>
         <div id="display"></div>
-        <script>
-            async function predict(){
-                const address = document.getElementById('address').value;
-                const bed_num = document.getElementById('bed_num').value;
-                const bath_num = document.getElementById('bath_num').value;
-                const parking = document.getElementById('parking').value;
-                const area = document.getElementById('area').value;
-                console.log(address, bed_num, bath_num, parking, area)
+    </div>
+
+    <script>
+        async function predict() {
+            const address = document.getElementById('address').value;
+            const bed_num = document.getElementById('bed_num').value;
+            const bath_num = document.getElementById('bath_num').value;
+            const parking = document.getElementById('parking').value;
+            const area = document.getElementById('area').value;
+
+            try {
                 const response = await fetch('/api/predict', {
-                method:'POST',
-                headers:{
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({address, bed_num, bath_num, parking, area})
-            })
-            const answer = await response.json()
-            console.log(answer['predicted_price'])
-            document.getElementById('display').innerHTML = answer['predicted_price']
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ address, bed_num, bath_num, parking, area })
+                });
+
+                const answer = await response.json();
+                document.getElementById('display').innerHTML = `Estimated Price: $${answer['predicted_price'].toLocaleString()}`;
+            } catch (error) {
+                document.getElementById('display').innerHTML = 'Error fetching prediction.';
+                console.error(error);
             }
-        </script>
-    </body>
+        }
+    </script>
+</body>
 </html>
